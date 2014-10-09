@@ -1,0 +1,1354 @@
+/*!
+Theme Name: Qwerty
+Theme URI: http://sevenbold.com/wordpress/qwerty/
+Description: Qwerty is a minimal, responsive, longform writing theme. 
+
+Great care has been taken to remove all unnecessary elements. You won't find any external javascript dependencies*, complex image sprites, or heavy web fonts. 
+
+We wanted to build the fastest, lightest weight theme we could. It's about displaying your content without the bloat, making your site load much faster than a typical WordPress theme.
+
+*Conditional javascript is included for IE8 support.
+Author: Ryan Sommers
+Author URI: http://sevenbold.com/wordpress/
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: one-column, responsive-layout, rtl-language-support, white, light, translation-ready, custom-menu, sticky-post
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others
+*/ 
+
+@import "styles/normalize.scss";
+@import "styles/mixins.scss";
+
+@function em($pixels, $context: 16) {
+	@return #{$pixels/$context}em;
+}
+
+/* Widths for Calculating Breakpoints and Percents */
+$breakPointSmallest: em(401);
+$breakPointTwo: em(640);
+$breakPointThree: em(760);
+$breakPointBiggest: em(1020);
+
+html {
+	background: #c1c8d0;
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	background: #fff;
+	// border-top: 9px solid #694242;
+	// box-shadow: 0 0 20px rgba(27,28,30,.2);
+	color: #37393c;
+	font-family: "Merriweather", Georgia, "Times New Roman", serif;
+	margin: em(10);
+	padding: 0;
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: em(30);
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		margin: em(40);
+	}
+}
+img {
+	height: auto;
+	max-width: 100%;
+}
+strong {
+	font-weight: bold;
+}
+
+.site-header {
+	background: #1b1c1e;
+	margin: 0 auto em(50) auto;
+	padding: 0;
+	text-align: center;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		margin: 0 auto em(60) auto;
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: 0 auto em(70) auto;
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		margin: 0 auto em(80) auto;
+	}
+
+	.superfluous {
+		border-bottom: 3px double #c1c8d0;
+		height: 3px;
+		margin: 0 0 em(-24) 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin: 0 0 em(-16) 0;
+		}
+	}
+}
+
+.site-branding {
+	margin: 0 auto;
+	// max-width: 700px;
+	padding: em(30) em(20);
+
+	@media screen and (min-width: $breakPointSmallest) {
+		padding: em(60) em(40);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		padding: em(80) em(60);
+	}
+	
+	@media screen and (min-width: $breakPointBiggest) {
+		padding: em(100) em(80);
+	}
+}
+
+.site-title {
+	font-size: em(30);
+	font-weight: 400;
+	margin: 0;
+	line-height: 1;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		font-size: em(40);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		font-size: em(60);
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		font-size: em(80);
+	}
+
+	&::first-letter {
+		// font-size: 80px;
+	}
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	color: #93989f;
+	font-size: em(15);
+	font-weight: 400;
+	margin: em(16, 17) 0 0 0;
+
+	@media screen and (min-width: $breakPointTwo) {
+		font-size: em(17);
+	}
+
+}
+
+.main-navigation {
+	background: #fff;
+	margin: 0;
+	padding: em(30) em(20) 0 em(20);
+
+	@include clear;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		padding: em(20) em(20) 0 em(20);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		padding: em(30) em(30) 0 em(30);
+	}
+	
+	@media screen and (min-width: $breakPointBiggest) {
+		padding: em(40) em(40) 0 em(40);
+	}
+
+	.main-navigation-select {
+		background: #fff;
+		margin: em(4) auto 0 auto;
+		max-width: em(210);
+		padding: 0 em(20);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			left: -999em;
+			position: absolute;
+		}
+	}
+
+	ul {
+		background: #fff;
+		display: inline-block;
+		left: -999em;
+		list-style: none;
+		margin: 0 em(30);
+		padding: 0 em(15);
+		position: absolute;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			display: inline-block;
+			left: 0;
+			position: static;
+		}
+
+		li {
+			background: #fff;
+			display: inline-block;
+			padding: 0 em(5);
+			position: relative;
+
+			a {
+				color: #6a7077;
+				display: block;
+				font-weight: 400;
+				line-height: 2;
+				padding: 0 em(5);
+				text-decoration: none;
+				transition: color .25s;
+
+				&:hover {
+					color: #1b1c1e;
+				}
+			}
+
+			ul {
+				border: 3px double #c1c8d0;
+				float: left;
+				left: -999em;
+				margin: -1px 0 0 0;
+				min-width: em(100);
+				padding: em(4) 0;
+				position: absolute;
+				text-align: left;
+				top: em(32);
+				z-index: 99999;
+
+				li {
+					display: block;
+
+					a {
+						display: block;
+						font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+						font-size: em(14);
+						font-weight: 400;
+						line-height: 1.2;
+						padding: em(8,14) em(15,14);
+						transition: all .25s;
+						// width: 200px;
+
+						&:hover {
+							background: #c1c8d0
+						}
+					}
+
+					ul {
+						left: -999em;
+						top: 0;
+					}
+
+					&:hover > a {
+						background: #c1c8d0;
+						color: #1b1c1e;
+					}
+
+					&:hover > ul {
+						left: 100%;
+					}
+
+				}
+
+			}
+
+			&:hover > a {
+				color: #1b1c1e;
+			}
+
+			&:hover > ul {
+				left: 0;
+			}
+		}
+	}
+}
+
+.site-content {
+	margin: 0 auto em(50) auto;
+	max-width: em(790);
+	padding: 0 em(20);
+
+	@media screen and (min-width: $breakPointSmallest) {
+		margin: 0 auto em(60) auto;
+		padding: 0 em(30);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: 0 auto em(70) auto;
+		padding: 0 em(40);
+	}
+	
+	@media screen and (min-width: $breakPointBiggest) {
+		margin: 0 auto em(80) auto;
+		max-width: em(940);
+		padding: 0 em(80);
+	}
+
+	.page-header {
+		
+		margin: 0 0 em(50) 0;
+		padding: 0 0 em(50) 0;
+		text-align: center;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin: 0 0 em(60) 0;
+			padding: 0 0 em(60) 0;
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin: 0 0 em(70) 0;
+			padding: 0 0 em(70) 0;
+		}
+		
+		@media screen and (min-width: $breakPointBiggest) {
+			margin: 0 0 em(40) 0;
+			padding: 0 0 em(40) 0;
+		}
+	}
+	.page-title {
+		border-bottom: 10px double #c1c8d0;
+		border-top: 10px double #c1c8d0;
+		color: #6a7077;
+		display: inline-block;
+		font-size: em(26);
+		font-weight: 400;
+		margin: 0 0 0 0;
+		padding: em(10,26) 0;
+		-ms-word-wrap: break-word;
+		word-wrap: break-word;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			font-size: em(52,26);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			font-size: em(64,26);
+		}
+
+		@media screen and (min-width: $breakPointBiggest) {
+			font-size: em(78,26);
+		}
+	}
+
+	.taxonomy-description {
+		font-size: em(15);
+		line-height: 1.7;
+		padding: em(16,19) 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			font-size: em(17);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			font-size: em(19);
+		}
+	}
+
+	.post,
+	.page {
+		border-bottom: 10px double #c1c8d0;
+		margin: 0 0 em(50) 0;
+		padding: 0 0 em(50) 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin: 0 0 em(60) 0;
+			padding: 0 0 em(60) 0;
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin: 0 0 em(70) 0;
+			padding: 0 0 em(70) 0;
+		}
+		
+		@media screen and (min-width: $breakPointBiggest) {
+			margin: 0 0 em(80) 0;
+			padding: 0 0 em(80) 0;
+		}
+
+		&.sticky {
+			background: #e5eaf1;
+			padding: em(50) 0;
+
+			@media screen and (min-width: $breakPointSmallest) {
+				margin: em(60) 0;
+				padding: em(60) 0;
+			}
+
+			@media screen and (min-width: $breakPointTwo) {
+				margin: em(70) 0;
+				padding: em(70) 0;
+			}
+			
+			@media screen and (min-width: $breakPointBiggest) {
+				margin: em(80) 0;
+				padding: em(80) 0;
+			}
+		}
+	}
+}
+
+.entry-header {
+	margin: 0 0 em(10) 0;
+	text-align: center;
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: 0 0 em(30) 0;
+	}
+}
+
+.entry-title {
+	color: #1b1c1e;
+	font-size: em(26);
+	font-weight: 400;
+	margin: 0 0 0 0;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		font-size: em(52,26);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		font-size: em(64,26);
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		font-size: em(78,26);
+	}
+
+	a {
+		color: #1b1c1e;
+		text-decoration: none;
+		transition: color .25s;
+
+		&:hover {
+			color: #6a7077;
+		}
+	}
+}
+
+.entry-meta {
+	border-top: 1px solid #c1c8d0;
+	color: #93989f;
+	display: inline-block;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: em(14);
+	font-weight: 400;
+	margin: em(15,14) 0 0 0;
+	padding: em(15,14) 0 0 0;
+
+	a {
+		border-bottom: 1px solid rgba(255,255,255,0);
+		color: #93989f;
+		text-decoration: none;
+		transition: all .25s;
+
+		&:hover {
+			border-bottom: 1px solid #c1c8d0;
+			color: #1b1c1e;
+		}
+	}
+}
+
+.entry-content,
+.entry-summary,
+.page-content {
+	font-size: em(15);
+	line-height: 1.7;
+	padding: em(16,19) 0;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		font-size: em(17);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		font-size: em(19);
+	}
+
+	@include clear;
+
+	> * {
+		margin-left: 0;
+		margin-right: 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin-left: 32px;
+			margin-left: 2rem;
+			margin-right: 32px;
+			margin-right: 2rem;
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin-left: 48px;
+			margin-left: 3rem;
+			margin-right: 48px;
+			margin-right: 3rem;
+		}
+		
+		@media screen and (min-width: $breakPointBiggest) {
+			margin-left: 80px;
+			margin-left: 5rem;
+			margin-right: 80px;
+			margin-right: 5rem;
+		}
+	}
+
+	a {
+		color: #854042;
+		transition: color .25s;
+
+		&:hover {
+			color: #55616A;
+		}
+	}
+
+	figure,
+	img {
+		margin-left: 0;
+		margin-right: 0;
+		padding: 0;
+	}
+
+	blockquote {
+		border-left: 6px double #c1c8d0;
+		color: #6a7077;
+		margin-left: em(20,15);
+		margin-right: em(20,15);
+		padding-left: em(24,15);
+		padding-right: em(24,15);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin-left: em(50,17);
+			margin-right: em(50,17);
+			padding-left: em(24,17);
+			padding-right: em(24,17);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin-left: em(70,19);
+			margin-right: em(70,19);
+			padding-left: em(24,19);
+			padding-right: em(24,19);
+		}
+
+		@media screen and (min-width: $breakPointBiggest) {
+			margin-left: em(105,19);
+			margin-right: em(105,19);
+			padding-left: em(24,19);
+			padding-right: em(24,19);
+		}
+	}
+
+	p {
+		margin-bottom: em(20,15);
+		margin-top: em(20,15);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin-bottom: em(22,17);
+			margin-top: em(22,17);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin-bottom: em(24,19);
+			margin-top: em(24,19);
+		}
+	}
+
+	ul,
+	ol {
+		margin-bottom: em(20,15);
+		margin-top: em(20,15);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin-bottom: em(22,17);
+			margin-top: em(22,17);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin-bottom: em(24,19);
+			margin-top: em(24,19);
+		}
+
+		li {
+			margin-bottom: em(13,15);
+
+			@media screen and (min-width: $breakPointSmallest) {
+				margin-bottom: em(14,17);
+			}
+
+			@media screen and (min-width: $breakPointTwo) {
+				margin-bottom: em(15,19);
+			}
+		}
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		margin: 0 em(24) em(24);
+	}
+	table {
+		margin: em(32) 0;
+		width: 100%;
+	}
+	th {
+		font-weight: bold;
+	}
+	hr {
+		background-color: #c1c8d0;
+		border: 0;
+		height: 1px;
+		margin-bottom: 1.5em;
+	}
+
+	.wp-caption-text {
+		color: #6a7077;
+		font-size: em(15, 19);
+	}
+
+	// Alignments
+	.alignleft {
+		display: inline;
+		float: left;
+		margin-bottom: em(16);
+		margin-left: 0;
+		margin-right: em(24);
+	}
+	.alignright {
+		display: inline;
+		float: right;
+		margin-bottom: em(16);
+		margin-left: em(24);
+	}
+	.aligncenter {
+		clear: both;
+		display: block;
+		margin: em(42,19) auto;
+	}
+	.alignnone {
+		display: block;
+		margin-bottom: em(42,19);
+		margin-top: em(42,19);
+	}
+}
+
+.entry-footer-wrapper {
+	text-align: center;
+}
+.entry-footer {
+	border-top: 1px solid #c1c8d0;
+	color: #93989f;
+	display: inline-block;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: em(14);
+	font-weight: 400;
+	margin: em(15,14) 0 0 0;
+	padding: em(15,14) 0 0 0;
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: em(30,14) 0 0 0;
+		padding: em(15,14) 0 0 0;
+	}
+
+	.page & {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+	.search .page & {
+		display: inline-block;
+		margin: em(15,14) 0 0 0;
+		padding: em(15,14) 0 0 0;
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin: em(30,14) 0 0 0;
+			padding: em(15,14) 0 0 0;
+		}
+	}
+
+	a {
+		border-bottom: 1px solid #c1c8d0;
+		color: #93989f;
+		text-decoration: none;
+		transition: all .25s;
+
+		&:hover {
+			border-bottom: 1px solid #93989f;
+			color: #1b1c1e;
+		}
+	}
+
+	.cat-links,
+	.tags-links {
+		display: block;
+		margin: 0 0 em(10,14) 0;
+	}
+
+	.edit-link {
+		display: block;
+		margin: em(10, 14) 0 0 0;
+	}
+}
+
+.comments-area {
+	margin: 0 0 em(50) 0;
+	padding: 0 0 em(50) 0;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		padding: 0 em(32);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		padding: 0 em(48);
+	}
+	
+	@media screen and (min-width: $breakPointBiggest) {
+		padding: 0 em(80);
+	}
+
+	.comments-title {
+		font-size: em(20);
+		font-weight: 400;
+		margin-top: 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			font-size: em(28);
+		}
+	}
+
+	.comment-list {
+		border-bottom: 1px solid #c1c8d0;
+		list-style: none;
+		margin: 0 0 em(50) 0;
+		padding: 0 0 em(50) 0;
+
+		@media screen and (min-width: $breakPointSmallest) {
+			margin: 0 0 em(60) 0;
+			padding: 0 0 em(60) 0;
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			margin: 0 0 em(70) 0;
+			padding: 0 0 em(70) 0;
+		}
+		
+		@media screen and (min-width: $breakPointBiggest) {
+			margin: 0 0 em(80) 0;
+			padding: 0 0 em(80) 0;
+		}
+
+		a {
+			border-bottom: 1px solid #c1c8d0;
+			color: #93989f;
+			text-decoration: none;
+			transition: all .25s;
+
+			&:hover {
+				border-bottom: 1px solid #93989f;
+				color: #1b1c1e;
+			}
+		}
+
+		.comment-author {
+
+			font-size: em(15);
+
+			@media screen and (min-width: $breakPointSmallest) {
+				font-size: em(17);
+			}
+
+			@media screen and (min-width: $breakPointTwo) {
+				font-size: em(19);
+			}
+
+			.avatar {
+				float: left;
+				height: 36px;
+				margin: 0 em(15, 19) 0 0;
+				width: 36px;
+
+				// @media (min-width: $breakPointTwo) {
+				// 	height: 48px;
+				// 	width: 48px;
+				// }
+			}
+
+			a {
+				border-bottom: 0;
+				color: #1b1c1e;
+				text-decoration: underline;
+
+				&:hover {
+					color: #854042;
+				}
+			}
+		}
+
+		.comment-metadata {
+			font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: em(13);
+
+			a {
+				border-bottom: 1px solid #c1c8d0;
+				color: #93989f;
+				text-decoration: none;
+				transition: all .25s;
+
+				&:hover {
+					border-bottom: 1px solid #93989f;
+					color: #1b1c1e;
+				}
+			}
+		}
+
+		.edit-link {
+			margin: 0 0 0 em(10);
+		}
+		
+		.comment {
+
+			&.bypostauthor {
+				article,
+				.children article {
+					border-left: 5px double #c1c8d0;
+					padding: em(16) 0 em(16) em(16);
+
+					@media screen and (min-width: $breakPointSmallest) {
+						padding: em(20) 0 em(20) em(20);
+					}
+
+					@media screen and (min-width: $breakPointTwo) {
+						padding: em(24) 0 em(24) em(24);
+					}
+				}
+			}
+			
+			article {
+				padding: em(16) 0 em(16) 0;
+
+				@media screen and (min-width: $breakPointSmallest) {
+					padding: em(20) 0 em(20) 0;
+				}
+
+				@media screen and (min-width: $breakPointTwo) {
+					padding: em(24) 0 em(24) 0;
+				}
+
+				
+			}
+			.children article {
+				border-left: 1px solid #c1c8d0;
+				padding: em(16) 0 em(16) em(16);
+
+				@media screen and (min-width: $breakPointSmallest) {
+					padding: em(20) 0 em(20) em(20);
+				}
+
+				@media screen and (min-width: $breakPointTwo) {
+					padding: em(24) 0 em(24) em(24);
+				}
+			}
+
+			p {
+				font-size: em(13);
+				line-height: 1.4;
+
+				@media screen and (min-width: $breakPointSmallest) {
+					font-size: em(15);
+				}
+
+				@media screen and (min-width: $breakPointTwo) {
+					font-size: em(17);
+				}
+			}
+
+			.comment-content a {
+				word-wrap: break-word;
+			}
+		}
+
+		.comment-reply-link {
+			font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		}
+	}
+
+	.children {
+		list-style: none;
+		margin: em(20) 0;
+		padding: 0 0 0 em(16);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			padding: 0 0 0 em(24);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			padding: 0 0 0 em(32);
+		}
+
+		@media screen and (min-width: $breakPointBiggest) {
+			padding: 0 0 0 em(40);
+		}
+	}
+	
+
+	.pinglist {
+		list-style: none;
+		margin: 0 0 em(30) 0;
+		padding: 0 0 em(16) 0;
+
+		li {
+			font-size: em(14);
+			line-height: 1.5;
+		}
+
+	}
+
+	.comment-respond {
+		// margin-top: em(80);
+	}
+
+	.comment-reply-title {
+		font-size: em(21);
+		margin-top: 0;
+	}
+
+	label {
+		display: block;
+		font-weight: 700;
+		margin: 0 0 em(4) 0;
+	}
+
+	#author,
+	#email,
+	#url,
+	#comment {
+		border: 3px solid #c1c8d0;
+		padding: em(12);
+		width: 100%;
+
+		&:focus {
+			border-color: #93989f;
+		}
+	}
+
+	#submit {
+		background: #93989f;
+		border: 0 none;
+		color: #fff;
+		font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		padding: em(8) em(12);
+		transition: background .25s;
+
+		&:hover {
+			background: #854042;
+		}
+	}
+}
+
+.navigation {
+	border-bottom: 10px double #c1c8d0;
+	margin: 0 0 em(50) 0;
+	padding: 0 0 em(50) 0;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		margin: 0 0 em(60) 0;
+		padding: 0 0 em(60) 0;
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		margin: 0 0 em(70) 0;
+		padding: 0 0 em(70) 0;
+	}
+	
+	@media screen and (min-width: $breakPointBiggest) {
+		margin: 0 0 em(80) 0;
+		padding: 0 0 em(80) 0;
+	}
+
+	.nav-links {
+		@include clear;
+
+		a {
+			border-bottom: 1px solid #fff;
+			color: #93989f;
+			text-decoration: none;
+			transition: all .25s;
+
+			&:hover {
+				border-bottom: 1px solid #93989f;
+				color: #1b1c1e;
+			}
+		}
+	}
+	.nav-previous {
+		margin: 0 0 em(10);
+
+		@media screen and (min-width: $breakPointTwo) {
+			float: left;
+			margin: 0;
+		}
+	}
+	.nav-next {
+
+		@media screen and (min-width: $breakPointTwo) {
+			float: right;
+			margin: 0;
+		}
+	}
+}
+
+.widget-area-wrapper {
+	background: #1b1c1e;
+	// padding: 0 em(80);
+}
+.widget-area {
+	// border-bottom: 10px double #c1c8d0;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: em(14);
+	color: #93989f;
+	line-height: 1.4;
+	// margin: 0 0 em(80) 0;
+	margin: 0 auto;
+	max-width: em(940, 14);
+	// padding: 0 0 em(80) 0;
+	padding: em(20, 14);
+
+	@media screen and (min-width: $breakPointSmallest) {
+		padding: em(30, 14);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		padding: em(40, 14);
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		padding: em(80, 14);
+	}
+
+	.widget-title {
+		color: #fff;
+		font-family: "Merriweather", Georgia, "Times New Roman", serif;
+		font-size: em(19,14);
+		line-height: 1.2;
+		margin: 0 0 em(10) 0;
+	}
+
+	a {
+		border-bottom: 1px solid #c1c8d0;
+		color: #93989f;
+		text-decoration: none;
+		transition: all .25s;
+
+		&:hover {
+			border-bottom: 1px solid #fff;
+			color: #fff;
+		}
+	}
+
+	ul,
+	ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			margin: 0 0 em(10) 0;
+		}
+	}
+
+	@include clear;
+
+	// From https://gist.github.com/slobodan/8684564
+	.footer-widget {
+		margin: 0 0 em(40,14) 0;
+		float: left;
+		width: 100%;
+		padding: 0;
+
+		@media screen and (min-width: $breakPointThree) {
+			padding: 0 em(15,14);
+		}
+	}
+
+	@media screen and (min-width: $breakPointThree) {
+
+		.widget-count-1.footer-widget {
+			padding: 0;
+		}
+		.per-row-2.footer-widget {
+			width: 50%;
+		}
+		.per-row-2.footer-widget:nth-of-type(2n+1) {
+			clear: left;
+			padding-left: 0;
+			padding-right: em(30,14);
+		}
+		.per-row-2.footer-widget:nth-of-type(2n) {
+			padding-left: em(30,14);
+			padding-right: 0;
+		}
+		.per-row-3.footer-widget {
+			width: 33.33333%;
+		}
+		.per-row-3.footer-widget:nth-of-type(3n+1) {
+			clear: left;
+			padding-left: 0;
+			padding-right: em(30,14);
+		}
+		.per-row-3.footer-widget:nth-of-type(3n) {
+			padding-left: em(30,14);
+			padding-right: 0;
+		}
+		.per-row-4.footer-widget {
+			width: 25%;
+		}
+		.per-row-4.footer-widget:nth-of-type(4n+1) {
+			clear: left;
+			padding-left: 0;
+			padding-right: em(30,14);
+		}
+		.per-row-4.footer-widget:nth-of-type(4n) {
+			padding-left: em(30,14);
+			padding-right: 0;
+		}
+	}
+
+	.search-form {
+		margin-top: em(4);
+		position: relative;
+	}
+	.search-field {
+		background: #fff;
+		border: 0 none;
+		box-sizing: border-box;
+		padding: em(8) em(12);
+		width: 100%;
+	}
+	.search-submit {
+		background: #93989f;
+		border: 0 none;
+		color: #fff;
+		padding: em(8) em(12);
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: background .25s;
+
+		&:hover {
+			background: #854042;
+		}
+	}
+}
+
+.site-footer {
+	background: #1b1c1e;
+	color: #93989f;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: em(14);
+	padding: 0 em(20, 14) em(40, 14) em(20, 14);
+	text-align: center;
+
+	@media screen and (min-width: $breakPointSmallest) {
+		padding: 0 em(30, 14) em(40, 14) em(30, 14);
+	}
+
+	@media screen and (min-width: $breakPointTwo) {
+		padding: 0 em(40, 14) em(40, 14) em(40, 14);
+	}
+
+	@media screen and (min-width: $breakPointBiggest) {
+		padding: 0 em(80, 14) em(80, 14) em(80, 14);
+	}
+	
+	a {
+		border-bottom: 1px solid #c1c8d0;
+		color: #93989f;
+		text-decoration: none;
+		transition: all .25s;
+
+		&:hover {
+			border-bottom: 1px solid #fff;
+			color: #fff;
+		}
+	}
+}
+
+/* Used from original Underscores css */
+.updated:not(.published) {
+	display: none;
+}
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+  z-index: 100000; /* Above WP toolbar */
+}
+
+/* Select styling from https://github.com/filamentgroup/select-css/blob/master/src/select.css */
+.custom-select {
+	display: block;
+	margin-top: 0.4em;
+	padding: 0;
+	position: relative;
+}
+.custom-select select {
+	appearance: none;
+	-webkit-appearance: none;
+	border-radius: 0;
+	background: #c1c8d0;
+	border: 1px solid transparent;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #444;
+	font-size: 1em;
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+	outline: none;
+	padding: .5em 1.9em .5em .8em;
+	width: 100%;
+}
+.custom-select::after {
+	background: url('images/select-arrow.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	content: "";
+	height: 8px;
+	margin-top:-4px;
+	pointer-events: none;
+	position: absolute;
+	right: 1em;
+	top: 50%;
+	width: 9px;
+	z-index: 2;
+}
+.custom-select:hover select {
+	border: 1px solid #93989f;
+}
+.custom-select select:focus {
+	border: 1px solid #1b1c1e;
+	box-shadow: none;
+	background-color: #1b1c1e;
+	color: #fff;
+	outline: none;
+}
+.custom-select option {
+	font-weight: normal;
+}
+x:-o-prefocus, .custom-select::after {
+	display:none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+	.custom-select select::-ms-expand {
+		display: none;
+	}
+	.custom-select select:focus::-ms-value {
+		background: transparent;
+		color: #222;
+	}
+}
+@-moz-document url-prefix() { 
+	.custom-select {
+		overflow: hidden;
+	}
+	.custom-select select {
+		width: 120%;
+		width: -moz-calc(100% + 3em);
+		width: calc(100% + em);
+	}
+}
+.custom-select select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #000;
+}
