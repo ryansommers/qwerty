@@ -15,5 +15,9 @@ You can download Qwerty at [github.com/ryansommers/qwerty/](https://github.com/r
 
 ## Changelog
 
+### Version 1.0.1
+* `style.scss`
+  - Modified some font sizes and padding values.
+
 ### Version 1.0.0
 - Initial release.

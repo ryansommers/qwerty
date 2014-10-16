@@ -333,15 +333,15 @@ strong {
 		word-wrap: break-word;
 
 		@media screen and (min-width: $breakPointSmallest) {
-			font-size: em(52,26);
+			font-size: em(32);
 		}
 
 		@media screen and (min-width: $breakPointTwo) {
-			font-size: em(64,26);
+			font-size: em(40);
 		}
 
 		@media screen and (min-width: $breakPointBiggest) {
-			font-size: em(78,26);
+			font-size: em(48);
 		}
 	}
 
@@ -382,7 +382,7 @@ strong {
 
 		&.sticky {
 			background: #e5eaf1;
-			padding: em(50) 0;
+			padding: em(50) em(20);
 
 			@media screen and (min-width: $breakPointSmallest) {
 				margin: em(60) 0;
@@ -420,15 +420,15 @@ strong {
 	word-wrap: break-word;
 
 	@media screen and (min-width: $breakPointSmallest) {
-		font-size: em(52,26);
+		font-size: em(32);
 	}
 
 	@media screen and (min-width: $breakPointTwo) {
-		font-size: em(64,26);
+		font-size: em(40);
 	}
 
 	@media screen and (min-width: $breakPointBiggest) {
-		font-size: em(78,26);
+		font-size: em(48);
 	}
 
 	a {
@@ -505,6 +505,31 @@ strong {
 			margin-left: 5rem;
 			margin-right: 80px;
 			margin-right: 5rem;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		line-height: 1.2;
+	}
+
+	h1 {
+		font-size: em(24,15);
+
+		@media screen and (min-width: $breakPointSmallest) {
+			font-size: em(28,17);
+		}
+
+		@media screen and (min-width: $breakPointTwo) {
+			font-size: em(36,19)
+		}
+
+		@media screen and (min-width: $breakPointBiggest) {
+			font-size: em(42,19)
 		}
 	}
 
