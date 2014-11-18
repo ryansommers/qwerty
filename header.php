@@ -41,11 +41,21 @@
 				<form class="main-navigation-select" action="<?php echo esc_url( get_template_directory_uri() ); ?>/nav.php" method="get" onChange="window.location.replace(document.getElementById('page-nav').value)">
 					<div class="custom-select">
 						<?php 
+						if (has_nav_menu('primary')) {
 							wp_nav_menu(array(
 								'theme_location' => 'primary',
 								'items_wrap' => '<select id="page-nav" name="page-nav">%3$s</select>', 
 								'walker' => new qwerty_select_menu_walker() 
-							)); 
+								)
+							); 
+						} else {
+							wp_nav_menu(array(
+								'theme_location' => '',
+								'items_wrap' => '<select id="page-nav" name="page-nav">%3$s</select>', 
+								'walker' => new qwerty_select_menu_walker() 
+								)
+							); 
+						}
 						?>
 					</div>
 					<noscript><input class="mob-sub" type="submit" value="Submit" /></noscript>

@@ -149,9 +149,9 @@ function qwerty_slbd_count_widgets( $sidebar_id ) {
 }
 
 // From http://www.visiv.ca/wordpress-wp-nav-select-menus/
-class qwerty_select_menu_walker extends Walker_Nav_Menu{
-	 
-	 function start_lvl( &$output, $depth = 0, $args = array() ) {
+class qwerty_select_menu_walker extends Walker_Nav_Menu {
+
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		$output .= "";
 	}
@@ -215,7 +215,7 @@ class qwerty_select_menu_walker extends Walker_Nav_Menu{
 		}
 		
 		$output .= $indent . '<option'. $sel_val . $id . $value . $class_names . $selc . '>'.$dp;
-		
+
 		$item_output = $args->before;
 		//$item_output .= '<a'. $attributes .'>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;

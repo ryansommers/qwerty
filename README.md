@@ -15,6 +15,10 @@ You can download Qwerty at [github.com/ryansommers/qwerty/](https://github.com/r
 
 ## Changelog
 
+### Version 1.0.3
+* `header.php`
+- Fixed to allow custom menu walker to work without a selected menu location.
+
 ### Version 1.0.2
 * `functions.php`
 - Bug fixes for strict mode.
