@@ -81,7 +81,7 @@ add_action( 'widgets_init', 'qwerty_widgets_init' );
 function qwerty_scripts() {
 	wp_enqueue_style( 'qwerty-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:400,400italic|Merriweather:400,400italic,700,700italic' );
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato:400,400italic|Merriweather:400,400italic,700,700italic' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
